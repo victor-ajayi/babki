@@ -11,10 +11,10 @@ class User(db.Model):
     username: str = db.Column(db.String, nullable=False)
     email: str = db.Column(db.String)
     password_hash: str = db.Column(db.String, nullable=False)
-    cash: float = db.Column(db.Float)
-    savings: float = db.Column(db.Float)
-    debt: float = db.Column(db.Float)
-    loans: float = db.Column(db.Float)
+    cash: float = db.Column(db.Float, server_default="0.0")
+    savings: float = db.Column(db.Float, server_default="0.0")
+    debt: float = db.Column(db.Float, server_default="0.0")
+    loans: float = db.Column(db.Float, server_default="0.0")
     created_at: TIMESTAMP = db.Column(
         TIMESTAMP(timezone=True),
         nullable=False,
